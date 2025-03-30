@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import globalSlice from "./slices/globalSlice";
 import { useDispatch } from "react-redux";
+import fetchSlice from "./slices/fetchSlice";
 
 
 
 export const store = configureStore({
     reducer: {
       globalSlice: globalSlice,
+      fetchSlice: fetchSlice,
     }
 })
 

@@ -25,3 +25,71 @@ export const sidebarLinks = [
         comp: <Setting />,
     },
 ]
+
+export const ordersTableThs = [
+    {
+        id: 1,
+        name: "Order"
+    },
+    {
+        id: 2,
+        name: "Store"
+    },
+    {
+        id: 3,
+        name: "Reason"
+    },
+    {
+        id: 4,
+        name: "Amount"
+    },
+    {
+        id: 5,
+        name: "Items"
+    },
+    {
+        id: 6,
+        name: "Actions"
+    },
+]
+
+export const decisionItems = [
+    {
+        id: 1,
+        name: "reject",
+        value: "reject",
+    },
+    {
+        id: 2,
+        name: "accept",
+        value: "accept",
+    },
+    {
+        id: 3,
+        name: "escalate",
+        value: "escalate",
+    },
+]
+
+export const itemsTableThs = [
+    {
+        id: 1,
+        name: "#"
+    },
+    {
+        id: 2,
+        name: "Name"
+    },
+    {
+        id: 3,
+        name: "Price"
+    },
+    {
+        id: 4,
+        name: "Quantity"
+    },
+    {
+        id: 5,
+        name: "Total"
+    },
+]

@@ -1,5 +1,5 @@
 import { sidebarLinks } from "@/constants";
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { JSX } from "react";
 
 interface StateType {
@@ -11,7 +11,6 @@ const initialState: StateType = {
     currentView: sidebarLinks[0].comp,
     viewSidbar: false,
 }
-
 
 export const globalSlice = createSlice({
     name: 'globalSlice',
