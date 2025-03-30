@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Order from '../Order/Order';
 import { OrderType } from '@/types';
 import { ordersTableThs } from '@/constants';
@@ -7,18 +7,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/lib/store';
 import { fetchOrders } from '@/lib/slices/fetchSlice';
 import TableLoading from '../TableLoading';
+import Paginations from '../Paginations';
 
 const Orders = () => {
 
-const {orders, loading, error} = useSelector((state:RootState)=>state.fetchSlice);
+    const {orders, loading, error} = useSelector((state:RootState)=>state.fetchSlice);
     const dispatch = useDispatch<AppDispatch>();
-  
-useEffect(()=>{
-    dispatch(fetchOrders());
-}, [])
 
-console.log(error);
-
+    /* pagination variables */
+    const [currentPage, setCurrentPage] = useState<number>(1);
+    const pageLength = 5;
+    const pages = Math.ceil(orders.length / pageLength);
+    const startIndex = (currentPage - 1) * pageLength;
+    const endIndex = startIndex + pageLength;
+    const shownOrders = orders.slice(startIndex, endIndex);
+    
+    useEffect(()=>{
+        dispatch(fetchOrders());
+    }, [])
   
     if (loading) {
         return (
@@ -46,11 +52,16 @@ console.log(error);
 
         <tbody className="main-tbody">
           {
-            orders.map((order:OrderType) => <Order key={order.id} {...order} />)
+            shownOrders.map((order:OrderType) => <Order key={order.id} {...order} />)
           }
         </tbody>
       </table>
     </div>
+    <Paginations 
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage} 
+      pages={pages} 
+    />
   </div>
   )
 }

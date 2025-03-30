@@ -3,25 +3,28 @@ import React from 'react'
 import { IoIosNotificationsOutline, IoIosMenu } from "react-icons/io";
 import { FaCog } from "react-icons/fa";
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/lib/store';
+import { setViewSidebar } from '@/lib/slices/globalSlice';
 
 const Header = () => {
 
-    // const contextValues = useAppContext();
-
-    // // const toggleSidebar = () => {
-    // //   contextValues?.setViewSidebar(!contextValues?.viewSidbar);
-    // // }
+    const { viewSidbar } = useSelector((state: RootState) => state.globalSlice);
+    const dispatch = useDispatch();
+    const toggleSidebar = () => {
+      dispatch(setViewSidebar(!viewSidbar));
+    }
 
   return (
     <div className='flex justify-between items-center xs:mb-28 md:mb-8'>
         <div className='flex'>
           <button 
             className='text-[50px] xs:block xl:hidden'
-            // onClick={toggleSidebar}
+            onClick={toggleSidebar}
             >
               <IoIosMenu />
             </button>
-          <form className='xs:hidden md:block md:ml-8'>
+          <form className='md:hidden md:ml-8'>
               <div className='w-fit h-12'>
                   <input 
                   type='text' 
