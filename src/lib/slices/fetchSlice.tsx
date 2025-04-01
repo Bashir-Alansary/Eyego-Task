@@ -14,7 +14,7 @@ const initialState: StateType = {
 }
 
 export const fetchOrders = createAsyncThunk('orders/fetchOrders', async()=> {
-    const res = await fetch('http://localhost:5000/orders');
+    const res = await fetch('http://localhost:4000/orders');
     return res.json();
 })
 
@@ -23,7 +23,6 @@ export const fetchSlice = createSlice({
     name: 'fetchSlice',
     initialState,
     reducers: {
-        
     },
     extraReducers: (builder) => {
 

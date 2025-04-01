@@ -12,7 +12,7 @@ const Sidebar = () => {
     
   const {viewSidbar} = useSelector((state:RootState)=>state.globalSlice);
     const dispatch = useDispatch();
-    const[activeBtn, setActiveBtn] = useState(sidebarLinks[1].id);
+    const[activeBtn, setActiveBtn] = useState(sidebarLinks[0].id);
 
     const handleBtn = (id: number) => {
         const newView = sidebarLinks.find(item => item.id === id);

@@ -1,5 +1,5 @@
 import { sidebarLinks } from "@/constants";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { JSX } from "react";
 
 interface StateType {

@@ -24,7 +24,7 @@ const Header = () => {
             >
               <IoIosMenu />
             </button>
-          <form className='md:hidden md:ml-8'>
+          <form className='xs:hidden md:block md:ml-8'>
               <div className='w-fit h-12'>
                   <input 
                   type='text' 

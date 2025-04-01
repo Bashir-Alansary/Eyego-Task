@@ -24,7 +24,7 @@ const Orders = () => {
     
     useEffect(()=>{
         dispatch(fetchOrders());
-    }, [])
+    }, [orders.length])
   
     if (loading) {
         return (
